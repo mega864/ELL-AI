@@ -1,384 +1,195 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowDown, ArrowUpRight, Compass, Activity, AlertTriangle, CheckCircle2, Sliders, ChevronRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Play, CheckCircle2, ShieldCheck, Cpu, Terminal } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export default function Hero() {
-  const [activeZone, setActiveZone] = useState<"normal" | "boundary" | "failure">("boundary");
+  const [activeTab, setActiveTab] = useState<"spec" | "engine" | "rig" | "gate">("engine");
 
-  const telemetryData = {
-    normal: {
-      title: "Normal Operating Envelope",
-      status: "NOMINAL",
-      statusColor: "text-blue-400 bg-blue-500/10 border-blue-500/30",
-      description: "Baseline parameters within approved engineering tolerances (Obstacle Distance: 100 cm).",
-      parameter: "Distance: 100cm | Latency: 12ms",
-      response: "Sensors report verified reflection pattern. Deterministic output.",
-      action: "Regression validation maintained",
+  const stageData = {
+    spec: {
+      step: "01",
+      title: "System Specification",
+      subtitle: "Requirements + Firmware",
+      description: "Ingests functional specifications, expected behaviors, and operating limits.",
+      metrics: "Target: AEB Braking Function | Limits: 20cm - 250cm range",
     },
-    boundary: {
-      title: "Boundary Exploration Region",
-      status: "EXPLORING LIMIT",
-      statusColor: "text-[#C7F36B] bg-[#C7F36B]/10 border-[#C7F36B]/40",
-      description: "Operating near the edge of sensitivity where non-linear physics emerge (Obstacle Distance: 20 cm).",
-      parameter: "Distance: 20cm | Threshold proximity: 94%",
-      response: "Signal attenuation detected. AI probes alternate pulse widths.",
-      action: "Next experiment dynamically suggested",
+    engine: {
+      step: "02",
+      title: "Physical AI Engine",
+      subtitle: "Intelligent Test Generation",
+      description: "Generates normal, boundary, and unexpected-condition test vectors.",
+      metrics: "Generated: 8 Nominal • 12 Edge Boundary • 4 Stress Fallback",
     },
-    failure: {
-      title: "Outside Approved Limits",
-      status: "FAIL ANOMALY",
-      statusColor: "text-red-400 bg-red-500/10 border-red-500/30",
-      description: "Sensor drop-out / missing echo beyond critical thermal and distance threshold.",
-      parameter: "Missing echo response | Error code: ERR_TIME_OUT",
-      response: "Critical anomaly isolated. Root-cause synthesis generated.",
-      action: "Safety clamp invoked — physical protection active",
+    rig: {
+      step: "03",
+      title: "Rig Execution",
+      subtitle: "Closed-Loop Hardware Bench",
+      description: "Executes approved experiments through simulation, HIL, or physical hardware adapters.",
+      metrics: "Adapter: Real-Time Bus | Bench Bounds: Enforced Safety Limits",
+    },
+    gate: {
+      step: "04",
+      title: "Quality Gate & Loop",
+      subtitle: "Results Guide Next Test",
+      description: "Captures sensor telemetry, highlights failures, and recommends the next test to run.",
+      metrics: "Outcome: Drop-out isolated at 20cm | Recommended: Ring-down sweep",
     },
   };
 
   return (
-    <section
-      id="hero"
-      className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#08090B]"
-    >
-      {/* Background Engineering Coordinate Grid & Gradients */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-60 pointer-events-none" />
-      <div className="absolute inset-0 bg-radial-gradient-hero pointer-events-none" />
+    <section id="hero" className="relative pt-32 pb-24 bg-[#1E1C1C] overflow-hidden">
+      {/* Very subtle background grid */}
+      <div className="absolute inset-0 bg-subtle-grid opacity-60 pointer-events-none" />
 
-      {/* Decorative Technical Top Grid Lines */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#292D35] to-transparent" />
-      <div className="absolute top-24 left-10 hidden xl:flex items-center gap-2 text-[10px] font-mono text-[#A1A5AD]/60 tracking-widest">
-        <span>REF: COORD-SYSTEM_v4.2</span>
-        <span>•</span>
-        <span>AXIS: PARAMETER [X] vs RESPONSE [Y]</span>
-      </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        
+        {/* Top Product Pill */}
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#212121] border border-[#2E2C2C] text-[11px] font-mono text-[#A1A5AD] mb-8">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#FF4545]" />
+          <span className="text-white font-medium">{SITE_CONFIG.descriptor}</span>
+          <span className="text-zinc-600">•</span>
+          <span>OEM Discussion & Concept</span>
+        </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        {/* Editorial Main Headline */}
+        <div className="max-w-4xl">
+          <h1 className="text-4xl sm:text-6xl lg:text-[68px] font-bold text-white tracking-tight leading-[1.08] mb-6">
+            We are building AI that tests physical systems, finds failure conditions and recommends what to improve.
+          </h1>
+
+          <p className="text-xl sm:text-2xl text-[#FF4545] font-medium tracking-tight mb-8">
+            Learn from every test. Choose the next useful test.
+          </p>
+
+          <p className="text-base sm:text-lg text-[#A1A5AD] max-w-2xl font-normal leading-relaxed mb-10">
+            Engineers spend weeks translating requirements into test scripts, diagnosing ambiguous sensor logs, and
+            repeating tests after firmware changes. ELL-AI closes the loop: intelligent scenario generation, boundary
+            exploration on physical rigs, and clear evidence for engineer review.
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap items-center gap-4">
+            <a
+              href="#problem"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-[#FF4545] text-sm font-semibold text-white tracking-wide transition-all hover:bg-[#e03a3a] shadow-lg shadow-[#FF4545]/20"
+            >
+              <span>Explore Validation Gaps</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+
+            <a
+              href="#demonstrator"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-md bg-[#212121] border border-[#2E2C2C] text-sm font-medium text-white transition-all hover:border-[#FF4545]/60 hover:bg-[#262424]"
+            >
+              <span>See AEB Demonstrator</span>
+              <ArrowUpRight className="w-4 h-4 text-[#A1A5AD]" />
+            </a>
+          </div>
+        </div>
+
+        {/* Clean, Non-Cluttered Interactive Validation Engine Preview */}
+        <div className="mt-16 rounded-xl bg-[#212121] border border-[#2E2C2C] p-6 sm:p-8 shadow-2xl">
           
-          {/* Left Column: Product Positioning & Editorial Typography */}
-          <div className="lg:col-span-7 flex flex-col justify-center text-left">
-            
-            {/* Descriptor Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#101216] border border-[#292D35] text-[11px] font-mono text-[#C7F36B] tracking-wider mb-6 w-fit shadow-inner">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C7F36B] animate-pulse"></span>
-              <span className="font-semibold">{SITE_CONFIG.descriptor}</span>
-              <span className="text-[#A1A5AD] text-[10px]">|</span>
-              <span className="text-[#A1A5AD] text-[10px] uppercase font-mono">எல்லை • Boundary</span>
-            </div>
-
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight text-white leading-[1.08] mb-6">
-              ENGINEERED TO <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5F6F2] to-[#A1A5AD]">
-                FIND THE LIMITS.
+          {/* Header Bar */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#2E2C2C] gap-3">
+            <div>
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#A1A5AD] block mb-1">
+                End-to-End Workflow Architecture
               </span>
-            </h1>
-
-            {/* Supporting Headline */}
-            <p className="text-xl sm:text-2xl font-medium text-[#C7F36B] tracking-tight mb-5">
-              Discover failures before they reach the real world.
-            </p>
-
-            {/* Core Description */}
-            <p className="text-base sm:text-lg text-[#A1A5AD] max-w-2xl font-normal leading-relaxed mb-8">
-              {SITE_CONFIG.description}
-            </p>
-
-            {/* Core Positioning Callout */}
-            <div className="p-4 rounded-lg bg-[#101216]/80 border-l-2 border-[#2455E8] border-r border-t border-b border-[#292D35] mb-8 max-w-xl">
-              <p className="text-xs font-mono text-[#A1A5AD] uppercase tracking-wider mb-1">
-                Core Positioning
-              </p>
-              <p className="text-sm font-semibold text-[#F5F6F2]">
-                &ldquo;Engineers define what a system should do. <br />
-                <span className="text-[#C7F36B]">ELL-AI discovers where it fails.&rdquo;</span>
-              </p>
+              <h3 className="text-lg font-bold text-white">
+                From System Requirements to Engineering Evidence
+              </h3>
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#platform"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-md bg-[#2455E8] text-sm font-semibold text-white tracking-wide transition-all duration-200 hover:bg-[#1d46c2] shadow-lg shadow-[#2455E8]/25 hover:shadow-[#2455E8]/40 active:scale-[0.98]"
-              >
-                <span>Explore the Platform</span>
-                <ChevronRight className="w-4 h-4 text-[#C7F36B]" />
-              </a>
-
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-md bg-[#101216] border border-[#292D35] text-sm font-medium text-[#F5F6F2] transition-all duration-200 hover:border-[#A1A5AD]/60 hover:text-white hover:bg-[#151922]"
-              >
-                <span>Talk to Our Team</span>
-                <ArrowUpRight className="w-4 h-4 text-[#A1A5AD]" />
-              </a>
+            <div className="flex items-center gap-2 text-xs font-mono text-[#A1A5AD]">
+              <ShieldCheck className="w-4 h-4 text-[#FF4545]" />
+              <span>Engineers retain final sign-off</span>
             </div>
-
-            {/* Subtle Engineering Credibility Metrics / Workflow Indicators */}
-            <div className="grid grid-cols-3 gap-4 pt-8 mt-8 border-t border-[#292D35]/80 max-w-lg">
-              <div>
-                <span className="text-[11px] font-mono text-[#A1A5AD] uppercase block">Workflow</span>
-                <span className="text-xs font-semibold text-[#F5F6F2] mt-0.5 block">10-Step Feedback</span>
-              </div>
-              <div>
-                <span className="text-[11px] font-mono text-[#A1A5AD] uppercase block">Target Execution</span>
-                <span className="text-xs font-semibold text-[#F5F6F2] mt-0.5 block">Sim • HIL • Hardware</span>
-              </div>
-              <div>
-                <span className="text-[11px] font-mono text-[#A1A5AD] uppercase block">Validation Mode</span>
-                <span className="text-xs font-semibold text-[#C7F36B] mt-0.5 block">Boundary Exploration</span>
-              </div>
-            </div>
-
           </div>
 
-          {/* Right Column: Interactive Technical Boundary Coordinate Visual */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-xl bg-[#101216] border border-[#292D35] p-5 shadow-2xl overflow-hidden">
-              
-              {/* Header Bar of Coordinate Console */}
-              <div className="flex items-center justify-between pb-3.5 border-b border-[#292D35] mb-4">
-                <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#2455E8] animate-ping" />
-                  <span className="text-xs font-mono font-medium text-[#F5F6F2]">
-                    BOUNDARY EXPLORATION MATRIX
-                  </span>
-                </div>
-                <div className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#151922] text-[#A1A5AD] border border-[#292D35]">
-                  INTERACTIVE PREVIEW
-                </div>
-              </div>
+          {/* 4 Interactive Connected Stages */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 my-6">
+            {(["spec", "engine", "rig", "gate"] as const).map((key) => {
+              const item = stageData[key];
+              const isSelected = activeTab === key;
 
-              {/* Interactive Zone Selector Tabs */}
-              <div className="grid grid-cols-3 gap-1.5 p-1 bg-[#08090B] rounded-lg border border-[#292D35] mb-4">
+              return (
                 <button
+                  key={key}
                   type="button"
-                  onClick={() => setActiveZone("normal")}
-                  className={`py-1.5 px-2 rounded text-[11px] font-mono transition-all duration-200 ${
-                    activeZone === "normal"
-                      ? "bg-[#151922] text-white border border-[#2455E8]/40 shadow-sm"
-                      : "text-[#A1A5AD] hover:text-[#F5F6F2]"
+                  onClick={() => setActiveTab(key)}
+                  className={`p-4 rounded-lg border text-left transition-all ${
+                    isSelected
+                      ? "bg-[#262424] border-[#FF4545] shadow-lg"
+                      : "bg-[#1E1C1C] border-[#2E2C2C] hover:border-[#3D3A3A]"
                   }`}
                 >
-                  01 Nominal
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveZone("boundary")}
-                  className={`py-1.5 px-2 rounded text-[11px] font-mono transition-all duration-200 ${
-                    activeZone === "boundary"
-                      ? "bg-[#151922] text-[#C7F36B] border border-[#C7F36B]/40 shadow-sm font-semibold"
-                      : "text-[#A1A5AD] hover:text-[#F5F6F2]"
-                  }`}
-                >
-                  02 Boundary
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveZone("failure")}
-                  className={`py-1.5 px-2 rounded text-[11px] font-mono transition-all duration-200 ${
-                    activeZone === "failure"
-                      ? "bg-[#151922] text-red-400 border border-red-500/40 shadow-sm font-semibold"
-                      : "text-[#A1A5AD] hover:text-[#F5F6F2]"
-                  }`}
-                >
-                  03 Failure
-                </button>
-              </div>
-
-              {/* Technical SVG Coordinate Plane */}
-              <div className="relative aspect-square w-full rounded-lg bg-[#08090B] border border-[#292D35] p-3 flex flex-col justify-between">
-                
-                {/* SVG Graph */}
-                <svg
-                  viewBox="0 0 320 280"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full"
-                >
-                  <defs>
-                    {/* Linear Gradients */}
-                    <linearGradient id="cobaltZone" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor="#2455E8" stopOpacity="0.35" />
-                      <stop offset="100%" stopColor="#2455E8" stopOpacity="0.08" />
-                    </linearGradient>
-                    <linearGradient id="failureZone" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stopColor="#EF4444" stopOpacity="0.25" />
-                      <stop offset="100%" stopColor="#EF4444" stopOpacity="0.03" />
-                    </linearGradient>
-                  </defs>
-
-                  {/* Grid Lines */}
-                  {[40, 80, 120, 160, 200, 240, 280].map((x) => (
-                    <line key={`x-${x}`} x1={x} y1="20" x2={x} y2="240" stroke="#1F232B" strokeWidth="1" />
-                  ))}
-                  {[50, 90, 130, 170, 210].map((y) => (
-                    <line key={`y-${y}`} x1="30" y1={y} x2="290" stroke="#1F232B" strokeWidth="1" />
-                  ))}
-
-                  {/* Failure Outside Envelope (Zone C) */}
-                  <path
-                    d="M 180 30 Q 240 60 270 120 L 290 230 L 180 230 Z"
-                    fill="url(#failureZone)"
-                  />
-                  <text x="210" y="70" fill="#EF4444" fontSize="8" fontFamily="monospace" opacity="0.8">
-                    FAILURE UNCERTAINTY
-                  </text>
-
-                  {/* Nominal Operating Region (Zone A - Cobalt) */}
-                  <path
-                    d="M 40 230 L 40 100 Q 110 95 140 140 Q 150 190 150 230 Z"
-                    fill="url(#cobaltZone)"
-                    stroke="#2455E8"
-                    strokeWidth="1.5"
-                  />
-                  <text x="50" y="180" fill="#2455E8" fontSize="9" fontFamily="monospace" fontWeight="600">
-                    NOMINAL ENVELOPE
-                  </text>
-                  <text x="50" y="195" fill="#A1A5AD" fontSize="7" fontFamily="monospace">
-                    Zone A: Requirements Met
-                  </text>
-
-                  {/* Dynamic Boundary Horizon Line (Acid Lime) */}
-                  <path
-                    d="M 140 30 C 145 90 160 140 210 230"
-                    stroke="#C7F36B"
-                    strokeWidth="2.5"
-                    strokeDasharray={activeZone === "boundary" ? "none" : "4 2"}
-                    className="transition-all duration-300"
-                  />
-                  <text x="120" y="45" fill="#C7F36B" fontSize="9" fontFamily="monospace" fontWeight="700">
-                    LIMIT BOUNDARY (எல்லை)
-                  </text>
-
-                  {/* Test Point 1: Nominal Point */}
-                  <circle
-                    cx="90"
-                    cy="160"
-                    r={activeZone === "normal" ? 6 : 4}
-                    fill="#2455E8"
-                    className="transition-all duration-300 cursor-pointer"
-                    onClick={() => setActiveZone("normal")}
-                  />
-                  <circle cx="90" cy="160" r="10" stroke="#2455E8" strokeWidth="1" strokeOpacity="0.4" />
-                  <text x="96" y="155" fill="#F5F6F2" fontSize="7" fontFamily="monospace">
-                    TP-01 (100cm)
-                  </text>
-
-                  {/* Test Point 2: Frontier Boundary Point */}
-                  <circle
-                    cx="155"
-                    cy="115"
-                    r={activeZone === "boundary" ? 7 : 4}
-                    fill="#C7F36B"
-                    className="transition-all duration-300 cursor-pointer"
-                    onClick={() => setActiveZone("boundary")}
-                  />
-                  <circle
-                    cx="155"
-                    cy="115"
-                    r="12"
-                    stroke="#C7F36B"
-                    strokeWidth="1.5"
-                    strokeOpacity="0.6"
-                    className={activeZone === "boundary" ? "animate-ping" : ""}
-                  />
-                  <text x="168" y="118" fill="#C7F36B" fontSize="8" fontFamily="monospace" fontWeight="bold">
-                    TP-02 (20cm EDGE)
-                  </text>
-
-                  {/* Test Point 3: Failure Point (Red/Orange Accent) */}
-                  <circle
-                    cx="235"
-                    cy="95"
-                    r={activeZone === "failure" ? 6 : 4}
-                    fill="#EF4444"
-                    className="transition-all duration-300 cursor-pointer"
-                    onClick={() => setActiveZone("failure")}
-                  />
-                  <line x1="230" y1="90" x2="240" y2="100" stroke="#FFFFFF" strokeWidth="1.5" />
-                  <line x1="240" y1="90" x2="230" y2="100" stroke="#FFFFFF" strokeWidth="1.5" />
-                  <text x="245" y="98" fill="#EF4444" fontSize="7" fontFamily="monospace">
-                    TP-03 (NO ECHO)
-                  </text>
-
-                  {/* Continuous Feedback Loop Vector Curve */}
-                  <path
-                    d="M 235 110 C 240 180 180 260 110 210"
-                    stroke="#A1A5AD"
-                    strokeWidth="1"
-                    strokeDasharray="2 3"
-                    markerEnd="url(#arrow)"
-                  />
-                  <text x="160" y="250" fill="#A1A5AD" fontSize="7" fontFamily="monospace">
-                    Continuous feedback loop → Learn & Recommend
-                  </text>
-
-                  {/* Axis Marks */}
-                  <line x1="30" y1="230" x2="300" y2="230" stroke="#292D35" strokeWidth="1.5" />
-                  <line x1="30" y1="20" x2="30" y2="230" stroke="#292D35" strokeWidth="1.5" />
-                  <text x="250" y="244" fill="#A1A5AD" fontSize="7" fontFamily="monospace">
-                    STRESS (X) →
-                  </text>
-                  <text x="15" y="30" fill="#A1A5AD" fontSize="7" fontFamily="monospace" transform="rotate(-90 15 30)">
-                    RESPONSE (Y) →
-                  </text>
-                </svg>
-
-                {/* Sub-Card: Live State Telemetry for Active Zone */}
-                <div className="mt-2 p-2.5 rounded bg-[#101216] border border-[#292D35] text-[11px] font-mono">
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-white font-semibold flex items-center gap-1.5">
-                      <Sliders className="w-3.5 h-3.5 text-[#2455E8]" />
-                      {telemetryData[activeZone].title}
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] font-mono text-[#A1A5AD]">
+                      STAGE {item.step}
                     </span>
-                    <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold border ${telemetryData[activeZone].statusColor}`}>
-                      {telemetryData[activeZone].status}
-                    </span>
+                    {isSelected && (
+                      <span className="w-2 h-2 rounded-full bg-[#FF4545]" />
+                    )}
                   </div>
-                  <p className="text-[10px] text-[#A1A5AD] leading-relaxed mb-1.5">
-                    {telemetryData[activeZone].description}
-                  </p>
-                  <div className="flex items-center justify-between pt-1 border-t border-[#292D35]/60 text-[10px]">
-                    <span className="text-[#C7F36B]">{telemetryData[activeZone].parameter}</span>
-                    <span className="text-[#A1A5AD]">{telemetryData[activeZone].action}</span>
-                  </div>
-                </div>
+                  <h4 className="text-sm font-bold text-white mb-0.5">{item.title}</h4>
+                  <p className="text-xs text-[#A1A5AD]">{item.subtitle}</p>
+                </button>
+              );
+            })}
+          </div>
 
-              </div>
-
-              {/* Engineering Annotation Footer */}
-              <div className="mt-3 flex items-center justify-between text-[10px] font-mono text-[#A1A5AD]">
-                <span className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#2455E8]" /> Cobalt: Operating Zone
-                </span>
-                <span className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C7F36B]" /> Acid Lime: Boundary Limit
-                </span>
-                <span className="flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-red-400" /> Red: Failure Marker
-                </span>
-              </div>
+          {/* Active Stage Detailed Status Strip */}
+          <div className="p-4 rounded-lg bg-[#1E1C1C] border border-[#2E2C2C] flex flex-col md:flex-row md:items-center justify-between gap-4 text-xs font-mono">
+            <div>
+              <span className="text-[#A1A5AD] uppercase text-[10px] block mb-1">Active Stage Overview:</span>
+              <span className="text-white font-medium">{stageData[activeTab].description}</span>
             </div>
 
-            {/* Subtle glow backdrop */}
-            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#2455E8]/20 to-[#C7F36B]/15 blur-2xl -z-10 opacity-50 pointer-events-none" />
+            <div className="shrink-0 p-2.5 rounded bg-[#212121] border border-[#2E2C2C] text-zinc-300">
+              <span className="text-[#FF4545] font-bold">STATE: </span>
+              <span>{stageData[activeTab].metrics}</span>
+            </div>
+          </div>
+
+          {/* Feedback Loop Notice */}
+          <div className="mt-4 pt-4 border-t border-[#2E2C2C] flex flex-wrap items-center justify-between text-xs text-[#A1A5AD]">
+            <span className="flex items-center gap-2">
+              <span className="text-[#FF4545] font-semibold">Feedback Loop:</span>
+              <span>Recommend an update, review it, then re-test automatically.</span>
+            </span>
+            <span className="text-[11px] font-mono text-zinc-500">
+              Physical connection through standard test adapters
+            </span>
           </div>
 
         </div>
-      </div>
 
-      {/* Bottom Scroll Indicator */}
-      <a
-        href="#problem"
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-[11px] font-mono text-[#A1A5AD] hover:text-[#C7F36B] transition-colors"
-        aria-label="Scroll down to Problem Section"
-      >
-        <span className="tracking-widest uppercase">Explore Challenges</span>
-        <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
-      </a>
+        {/* Minimal Bottom Indicators */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-[#2E2C2C] text-xs">
+          <div>
+            <span className="text-white font-semibold block mb-1">01 / Requirements-Linked</span>
+            <p className="text-[#A1A5AD] leading-relaxed">
+              Every generated test links directly to explicit functional specifications and hardware tolerance limits.
+            </p>
+          </div>
+          <div>
+            <span className="text-white font-semibold block mb-1">02 / Edge-Condition Discovery</span>
+            <p className="text-[#A1A5AD] leading-relaxed">
+              Probes multi-variable intersections (temperature + voltage + timing) where physical systems struggle.
+            </p>
+          </div>
+          <div>
+            <span className="text-white font-semibold block mb-1">03 / Actionable Engineering Insights</span>
+            <p className="text-[#A1A5AD] leading-relaxed">
+              Turns raw sensor readings and bus traces into clear reproduction steps and recommends what to test next.
+            </p>
+          </div>
+        </div>
+
+      </div>
     </section>
   );
 }

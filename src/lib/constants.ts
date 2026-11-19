@@ -1,18 +1,17 @@
 export const SITE_CONFIG = {
   name: "ELL-AI",
-  fullName: "ELL-AI — AI-Powered Physical Systems Validation Platform",
-  tagline: "Find the boundaries. Discover the failures.",
-  descriptor: "AI-POWERED PHYSICAL SYSTEMS VALIDATION",
-  statement: "Engineers define what a system should do. ELL-AI discovers where it fails.",
-  meaning: "ELL comes from the Tamil word 'எல்லை' (Ellai), meaning Boundary — the defining frontier where physical systems operate, transition, and encounter limits.",
-  description: "An AI-powered validation platform that understands engineering requirements, generates intelligent test scenarios, explores operating boundaries, analyses failures and recommends what to test next.",
+  fullName: "ELL-AI — Physical AI Validation Platform",
+  tagline: "Learn from every test. Choose the next useful test.",
+  descriptor: "PHYSICAL AI VALIDATION PLATFORM",
+  statement: "We are building AI that tests physical systems, finds failure conditions and recommends what to improve.",
+  description: "AI that helps engineers test physical systems, discover failures, and improve reliability. From requirements to engineering evidence.",
   // Central WhatsApp Configuration (temporary placeholder, easily replaceable)
-  whatsappNumber: "1234567",
-  whatsappUrl: "https://wa.me/1234567",
+  whatsappNumber: "7810093573",
+  whatsappUrl: "https://wa.me/7810093573",
   whatsappLabel: "Connect on WhatsApp",
   meta: {
-    title: "ELL-AI | AI-Powered Physical Systems Validation",
-    description: "Discover ELL-AI, an AI-powered Physical Systems Validation Platform designed to help engineering teams explore operating boundaries, generate intelligent test scenarios and understand system failures.",
+    title: "ELL-AI | Physical AI Validation Platform",
+    description: "AI that tests physical systems, finds failure conditions, and recommends what to improve. Learn from every test. Choose the next useful test.",
     url: "https://ell-ai.com",
   }
 };

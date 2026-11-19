@@ -5,7 +5,7 @@ import Logo from "./Logo";
 import { NAV_ITEMS } from "@/data/navigation";
 import { FOUNDERS_DATA } from "@/data/founders";
 import { SITE_CONFIG } from "@/lib/constants";
-import { ArrowUpRight, Heart, Shield } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 function LinkedInIcon({ className = "w-3.5 h-3.5" }: { className?: string }) {
   return (
@@ -19,98 +19,72 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#08090B] border-t border-[#292D35] text-[#A1A5AD] pt-16 pb-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#1E1C1C] border-t border-[#2E2C2C] text-[#A1A5AD] pt-16 pb-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-12 border-b border-[#292D35]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-[#2E2C2C]">
           
-          {/* Col 1 (5 cols): Brand Info */}
-          <div className="lg:col-span-5 space-y-4">
-            <Logo size="lg" showTagline={true} />
-            
-            <p className="text-xs sm:text-sm text-[#A1A5AD] max-w-sm leading-relaxed mt-4 font-normal">
+          {/* Brand Col */}
+          <div className="md:col-span-5 space-y-4">
+            <Logo size="md" showTagline={true} />
+            <p className="text-xs text-[#A1A5AD] max-w-sm leading-relaxed">
               {SITE_CONFIG.statement}
             </p>
-
-            <div className="p-3.5 rounded-lg bg-[#101216] border border-[#292D35] text-xs font-mono max-w-md">
-              <span className="text-[#C7F36B] font-bold block mb-1">எல்லை (Ellai) — Meaning Boundary</span>
-              <span className="text-zinc-400 leading-relaxed text-[11px]">
-                {SITE_CONFIG.meaning}
-              </span>
-            </div>
-
-            <div className="pt-2 text-[11px] font-mono text-zinc-500">
-              AI-Powered Physical Systems Validation Platform
-            </div>
+            <p className="text-[11px] font-mono text-zinc-500">
+              Physical connection through test adapters. Engineers retain sign-off.
+            </p>
           </div>
 
-          {/* Col 2 (3 cols): Navigation Links */}
-          <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-mono font-bold text-white tracking-wider uppercase mb-4">
-              Platform Navigation
-            </h4>
-            <ul className="space-y-2 text-xs">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.href}>
+          {/* Nav Links */}
+          <div className="md:col-span-3 space-y-2 text-xs">
+            <span className="font-mono uppercase tracking-wider text-white text-[11px] block mb-3 font-semibold">
+              Navigation
+            </span>
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="block text-[#A1A5AD] hover:text-white transition-colors py-1"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Founders LinkedIn */}
+          <div className="md:col-span-4 space-y-2 text-xs">
+            <span className="font-mono uppercase tracking-wider text-white text-[11px] block mb-3 font-semibold">
+              Founding Team
+            </span>
+            {FOUNDERS_DATA.map((f) => (
+              <div key={f.id} className="flex items-center justify-between py-1">
+                <span className="text-white">{f.name}</span>
+                {f.linkedInUrl ? (
                   <a
-                    href={item.href}
-                    className="hover:text-[#C7F36B] transition-colors flex items-center justify-between py-1 group"
+                    href={f.linkedInUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#A1A5AD] hover:text-[#FF4545] transition-colors p-1"
+                    aria-label={`${f.name} LinkedIn`}
                   >
-                    <span>{item.label}</span>
-                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity text-[#C7F36B]" />
+                    <LinkedInIcon className="w-3.5 h-3.5" />
                   </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Col 3 (4 cols): Founding Team LinkedIn Links */}
-          <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-xs font-mono font-bold text-white tracking-wider uppercase mb-4">
-              Founding Leadership
-            </h4>
-            <ul className="space-y-2.5 text-xs">
-              {FOUNDERS_DATA.map((founder) => (
-                <li key={founder.id} className="flex items-center justify-between py-1">
-                  <div>
-                    <span className="text-white font-medium block">{founder.name}</span>
-                    <span className="text-[10px] font-mono text-[#A1A5AD]">{founder.focusArea}</span>
-                  </div>
-
-                  {founder.linkedInUrl ? (
-                    <a
-                      href={founder.linkedInUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-1.5 rounded bg-[#101216] border border-[#292D35] hover:border-[#2455E8] hover:text-[#2455E8] transition-colors text-[#A1A5AD]"
-                      aria-label={`${founder.name} on LinkedIn`}
-                    >
-                      <LinkedInIcon className="w-3.5 h-3.5 text-[#2455E8]" />
-                    </a>
-                  ) : (
-                    <span className="text-[10px] font-mono text-zinc-600 px-2 py-0.5 rounded bg-[#101216] border border-[#292D35]">
-                      Pending
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ul>
+                ) : (
+                  <span className="text-[10px] font-mono text-zinc-600">Pending</span>
+                )}
+              </div>
+            ))}
           </div>
 
         </div>
 
-        {/* Bottom Bar: Copyright & Precision Notes */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-500">
-          <div>
-            © {currentYear} ELL-AI. All rights reserved. Physical Systems Validation Platform.
-          </div>
-
-          <div className="flex items-center gap-4 text-[11px]">
-            <span className="text-zinc-600">•</span>
-            <span>Engineered for Deep-Tech Reliability</span>
-            <span className="text-zinc-600">•</span>
-            <span className="text-[#C7F36B]">Version 1.0 Alpha</span>
+        {/* Bottom copyright */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-zinc-500 gap-3">
+          <span>© {currentYear} ELL-AI. All rights reserved.</span>
+          <div className="flex items-center gap-3 text-[11px]">
+            <span>Physical AI Validation Platform</span>
+            <span>•</span>
+            <span className="text-[#FF4545]">Engineered for Reliability</span>
           </div>
         </div>
 

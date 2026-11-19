@@ -1,121 +1,110 @@
 "use client";
 
-import React, { useState } from "react";
-import { INDUSTRIES_DATA } from "@/data/industries";
-import { Car, Bot, Plane, Factory, Zap, Smartphone, ArrowUpRight, Check } from "lucide-react";
+import React from "react";
+import { Car, Plane, Truck, Zap, Bot, Smartphone, ArrowRight } from "lucide-react";
 
 export default function IndustriesSection() {
-  const [selectedIndustry, setSelectedIndustry] = useState<string>("automotive");
-
-  const iconMap: Record<string, React.ElementType> = {
-    automotive: Car,
-    robotics: Bot,
-    aerospace: Plane,
-    industrial: Factory,
-    energy: Zap,
-    consumer: Smartphone,
-  };
+  const industries = [
+    {
+      title: "Automotive",
+      detail: "Confidence in connected vehicles.",
+      systems: "ECUs, radar/ultrasonic sensors, in-vehicle networks.",
+      icon: Car,
+    },
+    {
+      title: "Aerospace",
+      detail: "Reliability in critical systems.",
+      systems: "Flight instrumentation, telemetry nodes, actuators.",
+      icon: Plane,
+    },
+    {
+      title: "Heavy machinery",
+      detail: "Dependable equipment in demanding conditions.",
+      systems: "Hydraulic controllers, thermal limits, ruggedized sensors.",
+      icon: Truck,
+    },
+    {
+      title: "Energy & power",
+      detail: "Resilience in essential infrastructure.",
+      systems: "Grid synchronizers, inverter bridges, battery telemetry.",
+      icon: Zap,
+    },
+    {
+      title: "Robotics & automation",
+      detail: "Reliable machines in real-world environments.",
+      systems: "Autonomous navigation, kinematic actuators, LiDAR arrays.",
+      icon: Bot,
+    },
+    {
+      title: "Consumer electronics",
+      detail: "Confidence in everyday products.",
+      systems: "Smart devices, power management ICs, RF antennas.",
+      icon: Smartphone,
+    },
+  ];
 
   return (
-    <section id="industries" className="relative py-28 bg-[#08090B] border-t border-[#292D35]/80 overflow-hidden">
-      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="industries" className="py-24 bg-[#1E1C1C] border-t border-[#2E2C2C]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
-        {/* Section Heading */}
+        {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#101216] border border-[#292D35] text-xs font-mono text-[#C7F36B] mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C7F36B]" />
-            <span>09 / APPLICATION HORIZONS</span>
+          <div className="text-xs font-mono uppercase tracking-widest text-[#FF4545] mb-3">
+            Expansion Opportunity
           </div>
-
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-[#F5F6F2] tracking-tight leading-tight mb-4">
-            One validation intelligence. <br className="hidden sm:inline" />
-            Multiple industries.
+          <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
+            One platform. A broader industry opportunity.
           </h2>
-
-          <p className="text-base sm:text-lg text-[#A1A5AD] leading-relaxed">
-            ELL-AI is being developed with a broad engineering vision. Physical boundary phenomena — acoustic
-            attenuation, sensor ringing, bus contention, and thermal drift — affect mission-critical hardware across
-            diverse industries.
+          <p className="text-lg text-[#A1A5AD] leading-relaxed">
+            Start with a focused use case. Expand where physical reliability matters.
           </p>
         </div>
 
-        {/* 6-Card Editorial Grid */}
+        {/* 6 Clean Editorial Sector Cards (No clutter) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {INDUSTRIES_DATA.map((ind) => {
-            const IconComponent = iconMap[ind.id] || Car;
-            const isSelected = selectedIndustry === ind.id;
-
+          {industries.map((ind, i) => {
+            const Icon = ind.icon;
             return (
               <div
-                key={ind.id}
-                onClick={() => setSelectedIndustry(ind.id)}
-                className={`group relative rounded-xl p-7 border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
-                  isSelected
-                    ? "bg-[#151922] border-[#2455E8] shadow-2xl shadow-[#2455E8]/10 ring-1 ring-[#2455E8]"
-                    : "bg-[#101216] border-[#292D35] hover:border-[#A1A5AD]/40 hover:bg-[#151922]/50"
-                }`}
+                key={ind.title}
+                className="p-6 rounded-xl bg-[#212121] border border-[#2E2C2C] hover:border-[#3D3A3A] transition-all flex flex-col justify-between"
               >
                 <div>
-                  {/* Top Bar with Number & Icon */}
-                  <div className="flex items-center justify-between mb-5">
-                    <span className="text-xs font-mono font-bold text-[#2455E8]">
-                      {ind.number} / SECTOR
-                    </span>
-                    <div className="p-2.5 rounded-lg bg-[#08090B] border border-[#292D35] text-[#A1A5AD] group-hover:text-[#C7F36B] group-hover:border-[#C7F36B]/30 transition-colors">
-                      <IconComponent className="w-5 h-5" />
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="p-2 rounded-md bg-[#1E1C1C] border border-[#2E2C2C] text-white">
+                      <Icon className="w-5 h-5 text-[#FF4545]" />
                     </div>
+                    <span className="text-xs font-mono text-[#A1A5AD]">
+                      0{i + 1}
+                    </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-white tracking-tight mb-1">
+                  <h3 className="text-lg font-bold text-white mb-1">
                     {ind.title}
                   </h3>
 
-                  <p className="text-xs font-mono text-[#C7F36B] mb-3">
-                    {ind.subtitle}
+                  <p className="text-sm font-medium text-[#A1A5AD] mb-4">
+                    {ind.detail}
                   </p>
-
-                  <p className="text-xs sm:text-sm text-[#A1A5AD] leading-relaxed mb-6">
-                    {ind.description}
-                  </p>
-
-                  {/* Systems Validated */}
-                  <div className="space-y-1.5 mb-6">
-                    <span className="text-[10px] font-mono text-[#A1A5AD] uppercase tracking-wider block">
-                      Target Physical Subsystems:
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {ind.systems.map((sys, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 py-0.5 rounded bg-[#08090B] border border-[#292D35] text-[11px] font-mono text-zinc-300"
-                        >
-                          {sys}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                 </div>
 
-                {/* Boundary Exploration Focus */}
-                <div className="pt-4 border-t border-[#292D35]/80 mt-auto">
-                  <span className="text-[10px] font-mono text-[#A1A5AD] uppercase block mb-1">
-                    Boundary Focus:
-                  </span>
-                  <div className="text-[11px] font-mono text-[#F5F6F2]">
-                    {ind.metrics[0]} • {ind.metrics[1]}
-                  </div>
+                <div className="pt-4 border-t border-[#2E2C2C] text-xs font-mono text-zinc-400">
+                  <span className="text-[10px] text-[#A1A5AD] uppercase block mb-1">Subsystems:</span>
+                  <span>{ind.systems}</span>
                 </div>
-
               </div>
             );
           })}
         </div>
 
-        {/* Note on integrations */}
-        <div className="mt-8 text-center text-xs font-mono text-[#A1A5AD]">
-          * Visionary application targets. Validation frameworks are systematically expanded across industrial domains.
+        {/* Expansion Thesis Banner */}
+        <div className="mt-12 p-6 rounded-lg bg-[#212121] border border-[#2E2C2C] text-center">
+          <span className="text-xs font-mono text-[#FF4545] uppercase tracking-wider block mb-1">
+            Expansion Thesis
+          </span>
+          <p className="text-base sm:text-lg font-semibold text-white">
+            Reuse the core platform, adapt to each industry.
+          </p>
         </div>
 
       </div>
