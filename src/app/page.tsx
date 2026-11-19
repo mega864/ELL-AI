@@ -1,8 +1,8 @@
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
 import WorkflowSection from "@/components/WorkflowSection";
-import DemonstratorSection from "@/components/DemonstratorSection";
 import IndustriesSection from "@/components/IndustriesSection";
 import PilotSection from "@/components/PilotSection";
 import FoundersSection from "@/components/FoundersSection";
@@ -11,36 +11,50 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#1E1C1C] text-white selection:bg-[#FF4545] selection:text-white">
-      {/* Sticky Navigation */}
-      <Navbar />
+    <main className="min-h-screen bg-[#1E1C1C] text-white selection:bg-[#FF4545] selection:text-white relative">
+      {/* Persistent Fixed Background Image Across Entire Website */}
+      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <Image
+          src="/hero-bg.png"
+          alt="Physical Systems Validation Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-65 select-none"
+        />
+        {/* Atmospheric dark wash to maintain contrast across all sections */}
+        <div className="absolute inset-0 bg-[#1E1C1C]/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1E1C1C]/40 via-transparent to-[#1E1C1C]/80" />
+      </div>
 
-      {/* 1. Hero: Physical AI Validation Platform */}
-      <Hero />
+      <div className="relative z-10">
+        {/* Sticky Navigation */}
+        <Navbar />
 
-      {/* 2. Five Gaps that Make Validation Difficult */}
-      <ProblemSection />
+        {/* 1. Hero */}
+        <Hero />
 
-      {/* 3. How Our AI Works: 10-Step Loop */}
-      <WorkflowSection />
+        {/* 2. Five Validation Gaps */}
+        <ProblemSection />
 
-      {/* 4. AEB Demonstrator: From Setup to Tests */}
-      <DemonstratorSection />
+        {/* 3. How Our AI Works: 10-Step Loop */}
+        <WorkflowSection />
 
-      {/* 5. One Platform. Broader Industry Opportunity */}
-      <IndustriesSection />
+        {/* 4. Industries */}
+        <IndustriesSection />
 
-      {/* 6. Start Small. Prove the Value (Pilot Framework) */}
-      <PilotSection />
+        {/* 5. Start Small: Pilot Framework */}
+        <PilotSection />
 
-      {/* 7. Founding Team */}
-      <FoundersSection />
+        {/* 6. Founding Team */}
+        <FoundersSection />
 
-      {/* 8. Contact & OEM Discussion */}
-      <ContactSection />
+        {/* 7. Contact */}
+        <ContactSection />
 
-      {/* 9. Minimal Footer */}
-      <Footer />
+        {/* 8. Footer */}
+        <Footer />
+      </div>
     </main>
   );
 }

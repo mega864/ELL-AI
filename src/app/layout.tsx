@@ -1,6 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SITE_CONFIG } from "@/lib/constants";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   themeColor: "#1E1C1C",
@@ -46,8 +54,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className="min-h-screen bg-[#1E1C1C] text-white antialiased selection:bg-[#FF4545] selection:text-white">
+    <html lang="en" className={`dark scroll-smooth ${inter.variable}`}>
+      <body className="min-h-screen bg-[#1E1C1C] text-white antialiased selection:bg-[#FF4545] selection:text-white font-[var(--font-inter),system-ui,sans-serif]">
         {children}
       </body>
     </html>

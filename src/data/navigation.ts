@@ -4,9 +4,8 @@ export interface NavItem {
 }
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "Validation Gaps", href: "#problem" },
-  { label: "How It Works", href: "#workflow" },
-  { label: "Demonstrator", href: "#demonstrator" },
+  { label: "The Problem", href: "#problem" },
+  { label: "The Approach", href: "#workflow" },
   { label: "Industries", href: "#industries" },
   { label: "Team", href: "#about" },
 ];

@@ -13,8 +13,8 @@ import {
   FileCheck2,
   RotateCcw,
   ShieldCheck,
+  ChevronLeft,
   ChevronRight,
-  ArrowRight
 } from "lucide-react";
 
 export default function WorkflowSection() {
@@ -24,81 +24,81 @@ export default function WorkflowSection() {
     {
       num: 1,
       title: "Engineer Request",
-      summary: "Describe the system function to validate.",
-      input: "Engineer inputs specification: e.g. 'Validate obstacle detection down to 20cm limit under acoustic noise.'",
-      output: "Target function and acceptance limits mapped.",
+      summary: "Define the specific system function to validate.",
+      input: "The engineer specifies functional limits, such as obstacle detection thresholds under acoustic noise.",
+      output: "Target requirements and acceptable operating boundaries are indexed.",
       icon: FileText,
     },
     {
       num: 2,
       title: "AI Understands",
-      summary: "Identify the system, function and test objective.",
-      input: "System parameters, sensor channels, signal rates, and environmental ranges.",
-      output: "Structured validation intent and parameter bounds.",
+      summary: "Map the system architecture and validation intent.",
+      input: "Sensor channels, physical parameters, signal rates, and operating constraints.",
+      output: "Structured validation model with parameter thresholds.",
       icon: Brain,
     },
     {
       num: 3,
       title: "Retrieve Knowledge",
-      summary: "Requirements, limits, signal definitions and past results.",
-      input: "Past test histories, component datasheets, and baseline test matrices.",
-      output: "Contextual knowledge graph for the Device Under Test.",
+      summary: "Review past test outcomes and component specs.",
+      input: "Historical test run logs, component datasheets, and baseline test matrices.",
+      output: "Contextual knowledge graph for the specific device under test.",
       icon: Database,
     },
     {
       num: 4,
       title: "Generate Tests",
-      summary: "Normal, boundary and unexpected-condition tests.",
+      summary: "Create nominal, boundary, and stress test scenarios.",
       input: "Multi-parameter test vector generation logic.",
-      output: "Generated suite: Normal operating, boundary proximity, and fault tolerance cases.",
+      output: "Complete test suite covering standard operation, edge limits, and fault recovery.",
       icon: Cpu,
     },
     {
       num: 5,
       title: "Engineer Review",
-      summary: "Approve tests, expected results and operating limits.",
-      input: "Human verification gate before physical bench execution.",
-      output: "Signed-off test plan with hard safety clamps confirmed.",
+      summary: "Review and approve test parameters before execution.",
+      input: "Engineers inspect scenarios and set hard safety stops before bench execution.",
+      output: "Approved test schedule with safety limits locked in.",
       icon: UserCheck,
     },
     {
       num: 6,
       title: "Run the Tests",
-      summary: "Execute through adapters: simulation, HIL or physical bench.",
-      input: "Dispatch approved scenarios via digital twins or CAN/hardware adapters.",
-      output: "Controlled test execution under enforced bench limits.",
+      summary: "Execute across hardware rigs, HIL benches, or simulators.",
+      input: "Dispatch approved test vectors via CAN adapters or real-time test benches.",
+      output: "Automated test execution under monitored safety boundaries.",
       icon: Play,
     },
     {
       num: 7,
       title: "Collect Results",
-      summary: "Capture signals, sensor data, outputs and logs.",
-      input: "High-speed bus logs, sensor waveforms, timestamps, and current draw.",
-      output: "Synchronized telemetry dataset for analysis.",
+      summary: "Capture bus telemetry, sensor output, and system logs.",
+      input: "High-speed bus logs, sensor signals, timestamps, and electrical metrics.",
+      output: "Synchronized telemetry dataset ready for analysis.",
       icon: Activity,
     },
     {
       num: 8,
       title: "Analyse Results",
-      summary: "Compare actual vs expected; identify failure patterns.",
-      input: "Delta analysis between mathematical expectations and physical observations.",
-      output: "Isolated behavioral changes, latency drifts, or sensor dropouts.",
+      summary: "Compare actual outputs against engineering criteria.",
+      input: "Automated delta comparison between expected thresholds and measured performance.",
+      output: "Identified anomalies, signal dropouts, and timing deviations.",
       icon: BarChart3,
     },
     {
       num: 9,
       title: "Engineering Report",
-      summary: "Evidence, findings and improvement recommendations.",
-      input: "Synthesis of verified pass/fail conditions with reproduction traces.",
-      output: "Comprehensive engineering report with root-cause clues.",
+      summary: "Deliver clear diagnostic findings with root causes.",
+      input: "Consolidated pass and fail criteria linked with exact timestamp traces.",
+      output: "Actionable engineering summary highlighting verified failure causes.",
       icon: FileCheck2,
     },
     {
       num: 10,
       title: "Plan Next Test",
-      summary: "Propose follow-up, boundary and regression tests.",
-      input: "Empirical test findings from Step 08 & 09.",
-      output: "Recommended next experiment to probe adjacent unknown boundaries.",
+      summary: "Recommend the next logical test to deepen understanding.",
+      input: "Empirical findings from the completed test run.",
+      output: "Recommended follow-up experiments to probe adjacent edge conditions.",
       icon: RotateCcw,
     },
   ];
@@ -106,12 +106,12 @@ export default function WorkflowSection() {
   const current = steps[activeStep - 1];
 
   return (
-    <section id="workflow" className="py-24 bg-[#1E1C1C] border-t border-[#2E2C2C]">
+    <section id="workflow" className="py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <div className="text-xs font-mono uppercase tracking-widest text-[#FF4545] mb-3">
+          <div className="text-sm sm:text-base font-semibold uppercase tracking-wider text-[#FF4545] mb-3">
             Our Approach
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
@@ -204,9 +204,10 @@ export default function WorkflowSection() {
               type="button"
               disabled={activeStep === 1}
               onClick={() => setActiveStep((p) => Math.max(1, p - 1))}
-              className="px-3.5 py-1.5 rounded bg-[#1E1C1C] border border-[#2E2C2C] text-xs font-mono text-[#A1A5AD] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed"
+              className="px-3.5 py-1.5 rounded bg-[#1E1C1C] border border-[#2E2C2C] text-xs font-mono text-[#A1A5AD] hover:text-white disabled:opacity-30 disabled:cursor-not-allowed flex items-center gap-1.5"
             >
-              ← Previous Step
+              <ChevronLeft className="w-3.5 h-3.5" />
+              <span>Previous Step</span>
             </button>
 
             <span className="text-xs font-mono text-zinc-500 hidden sm:inline">

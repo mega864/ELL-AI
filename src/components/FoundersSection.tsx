@@ -14,12 +14,12 @@ function LinkedInIcon({ className = "w-4 h-4" }: { className?: string }) {
 
 export default function FoundersSection() {
   return (
-    <section id="about" className="py-24 bg-[#1E1C1C] border-t border-[#2E2C2C]">
+    <section id="about" className="py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <div className="text-xs font-mono uppercase tracking-widest text-[#FF4545] mb-3">
+          <div className="text-sm sm:text-base font-semibold uppercase tracking-wider text-[#FF4545] mb-3">
             Founding Team
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-4">

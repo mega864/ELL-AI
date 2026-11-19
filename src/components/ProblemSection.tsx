@@ -8,59 +8,59 @@ export default function ProblemSection() {
     {
       num: "1",
       title: "New firmware needs new tests",
-      detail: "Supplier updates add work before integration.",
-      solution: "Generate requirement-linked test cases automatically for engineer review.",
+      detail: "Frequent software updates create continuous testing overhead before integration.",
+      solution: "Auto-generate test cases linked directly to requirements for engineering review.",
       icon: FileCode,
     },
     {
       num: "2",
-      title: "Conditions interact",
-      detail: "Voltage, temperature and timing can combine to create unexpected failure modes.",
-      solution: "Create boundary and combined-condition tests; prioritise high-risk scenarios.",
+      title: "Conditions interact unexpectedly",
+      detail: "Voltage drops, temperature swings, and signal delays combine to create subtle bugs.",
+      solution: "Target boundary combinations to uncover hidden failure points early.",
       icon: Combine,
     },
     {
       num: "3",
-      title: "Unexpected cases remain untested",
-      detail: "Fixed test plans may miss unknown boundaries and edge transitions.",
-      solution: "Explore multi-variable frontiers where physical sensor behaviors degrade.",
+      title: "Edge cases get missed",
+      detail: "Standard test scripts only verify expected operating limits, missing borderline transitions.",
+      solution: "Test borderline transitions where physical sensors begin to drift or degrade.",
       icon: EyeOff,
     },
     {
       num: "4",
-      title: "Finding the cause takes time",
-      detail: "Logs need review, signals need decoding, and failures need reproduction.",
-      solution: "Collect evidence, identify affected requirements, and recommend probable causes.",
+      title: "Root-cause analysis takes too long",
+      detail: "Engineers spend hours parsing raw CAN logs and sensor telemetry to isolate anomalies.",
+      solution: "Correlate telemetry with requirements to pinpoint the exact failure cause.",
       icon: Clock,
     },
     {
       num: "5",
-      title: "Late findings create rework",
-      detail: "Fixes late in development can trigger another exhaustive validation campaign.",
-      solution: "Select relevant regression tests after changes and compare directly with baselines.",
+      title: "Late discoveries cause costly rework",
+      detail: "Finding defects right before production triggers expensive re-testing cycles.",
+      solution: "Run targeted regression suites after code changes to catch issues immediately.",
       icon: RotateCcw,
     },
   ];
 
   return (
-    <section id="problem" className="py-24 bg-[#1E1C1C] border-t border-[#2E2C2C]">
+    <section id="problem" className="py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <div className="text-xs font-mono uppercase tracking-widest text-[#FF4545] mb-3">
-            Validation Challenges
+          <div className="text-sm sm:text-base font-semibold uppercase tracking-wider text-[#FF4545] mb-3">
+            Testing Challenges
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
             Five gaps that make validation difficult.
           </h2>
           <p className="text-lg text-[#A1A5AD] leading-relaxed">
-            Conventional validation relies on manual test creation and fixed test plans. When physical parameters
-            interact, edge failures remain hidden until late in the development cycle.
+            Conventional validation relies on manual test scripts and fixed checklists.
+            When hardware parameters interact under stress, critical defects slip through until late in development.
           </p>
         </div>
 
-        {/* 5-Row Editorial List (Clean, Sleek, No Box Clutter) */}
+        {/* 5-Row Editorial List */}
         <div className="divide-y divide-[#2E2C2C] border-y border-[#2E2C2C]">
           {gaps.map((gap) => {
             const Icon = gap.icon;
@@ -69,7 +69,7 @@ export default function ProblemSection() {
                 key={gap.num}
                 className="py-6 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline group hover:bg-[#212121]/50 px-3 -mx-3 rounded-lg transition-colors"
               >
-                {/* Number & Title (5 cols) */}
+                {/* Number & Title */}
                 <div className="md:col-span-5 flex items-start gap-4">
                   <span className="text-base font-mono font-bold text-[#FF4545] shrink-0 w-6">
                     0{gap.num}
@@ -84,12 +84,12 @@ export default function ProblemSection() {
                   </div>
                 </div>
 
-                {/* Arrow indicator (1 col) */}
+                {/* Arrow indicator */}
                 <div className="hidden md:flex md:col-span-1 justify-center text-[#A1A5AD]/40 group-hover:text-[#FF4545] transition-colors">
                   <ArrowRight className="w-4 h-4" />
                 </div>
 
-                {/* Platform Solution (6 cols) */}
+                {/* Solution */}
                 <div className="md:col-span-6 pl-10 md:pl-0">
                   <span className="text-[10px] font-mono uppercase text-[#A1A5AD] tracking-wider block mb-1">
                     How ELL-AI Solves This:
