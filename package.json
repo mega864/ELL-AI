@@ -1,7 +1,7 @@
 {
   "name": "ell-ai",
   "version": "1.0.0",
-  "description": "ELL-AI — AI-Powered Physical Systems Validation Platform",
+  "description": "ELL-AI – AI-Powered Physical Systems Validation Platform",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -30,13 +30,20 @@
     "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.0.7",
     "@types/node": "^22.13.4",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.2",
-    "tailwindcss": "^4.0.7",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3"
-  }
+  },
+  "browserslist": [
+    "chrome >= 80",
+    "safari >= 13",
+    "firefox >= 78",
+    "android >= 8",
+    "ios_saf >= 13",
+    "samsung >= 12"
+  ]
 }
