@@ -20,11 +20,11 @@ export default function Home() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center opacity-65 select-none"
+          className="object-cover object-top sm:object-center opacity-60 select-none"
         />
-        {/* Atmospheric dark wash to maintain contrast across all sections */}
-        <div className="absolute inset-0 bg-[#1E1C1C]/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1E1C1C]/40 via-transparent to-[#1E1C1C]/80" />
+        {/* Atmospheric dark wash to maintain contrast across all sections on both mobile and laptop */}
+        <div className="absolute inset-0 bg-[#1E1C1C]/65" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1E1C1C]/50 via-transparent to-[#1E1C1C]/85" />
       </div>
 
       <div className="relative z-10">

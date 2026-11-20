@@ -24,8 +24,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#1E1C1C]/90 backdrop-blur-md py-3.5 shadow-lg shadow-black/40"
-          : "bg-transparent py-5"
+          ? "bg-[#1E1C1C]/95 backdrop-blur-md py-3 shadow-lg shadow-black/40"
+          : "bg-[#1E1C1C]/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none py-4 sm:py-5"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -59,7 +59,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-md text-[#A1A5AD] hover:text-white"
+            className="md:hidden p-2 rounded-md bg-[#212121] border border-[#2E2C2C] text-[#A1A5AD] hover:text-white"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -73,8 +73,8 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[61px] bottom-0 bg-[#1E1C1C] px-6 py-8 flex flex-col justify-between">
-          <div className="flex flex-col space-y-1">
+        <div className="md:hidden fixed inset-x-0 top-[65px] bottom-0 bg-[#1E1C1C] px-6 py-8 flex flex-col justify-between z-50">
+          <div className="flex flex-col space-y-2">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.href}
@@ -102,7 +102,7 @@ export default function Navbar() {
               href={SITE_CONFIG.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-[#FF4545] text-sm font-semibold text-white"
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#FF4545] text-sm font-semibold text-white"
             >
               Talk to us on WhatsApp
             </a>

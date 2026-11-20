@@ -2,6 +2,7 @@
 
 @layer base {
   :root {
+    color-scheme: dark;
     --bg-primary: #1E1C1C;
     --bg-secondary: #212121;
     --bg-surface: #262424;
@@ -19,15 +20,22 @@
     scroll-behavior: smooth;
   }
 
+  html,
   body {
-    background-color: #1E1C1C;
-    color: #FFFFFF;
+    background-color: #1E1C1C !important;
+    color: #FFFFFF !important;
+    color-scheme: dark;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", "Geist", "Manrope", sans-serif;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 
   /* Minimal clean scrollbar */

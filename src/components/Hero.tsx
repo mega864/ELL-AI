@@ -7,11 +7,11 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative pt-32 pb-24 overflow-hidden min-h-[92vh] flex items-center"
+      className="relative pt-32 sm:pt-40 lg:pt-44 pb-20 sm:pb-28 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 w-full">
         <div className="max-w-3xl">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1] mb-5 drop-shadow-lg">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.15] mb-5 drop-shadow-lg">
             AI that runs physical tests, finds failures, and tells you what to fix.
           </h1>
 

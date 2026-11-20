@@ -54,8 +54,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`dark scroll-smooth ${inter.variable}`}>
-      <body className="min-h-screen bg-[#1E1C1C] text-white antialiased selection:bg-[#FF4545] selection:text-white font-[var(--font-inter),system-ui,sans-serif]">
+    <html
+      lang="en"
+      className={`dark scroll-smooth ${inter.variable}`}
+      style={{ backgroundColor: "#1E1C1C", color: "#FFFFFF", colorScheme: "dark" }}
+    >
+      <body
+        className="min-h-screen bg-[#1E1C1C] text-white antialiased selection:bg-[#FF4545] selection:text-white font-[var(--font-inter),system-ui,sans-serif]"
+        style={{ backgroundColor: "#1E1C1C", color: "#FFFFFF" }}
+      >
         {children}
       </body>
     </html>
