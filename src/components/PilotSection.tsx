@@ -8,40 +8,40 @@ export default function PilotSection() {
   const steps = [
     {
       step: "01",
-      title: "One system function",
-      detail: "Select a single critical hardware function such as obstacle detection, actuator travel, or bus latency.",
+      title: "Pick one thing",
+      detail: "One function that matters, such as \"does it stop when something is in the way?\"",
     },
     {
       step: "02",
-      title: "Agreed specifications",
-      detail: "Define the target operating parameters, tolerance envelopes, and clear pass criteria.",
+      title: "Agree on good",
+      detail: "We set the limits and what counts as a pass together.",
     },
     {
       step: "03",
-      title: "Controlled test setup",
-      detail: "Connect through a software simulation, Hardware-in-the-Loop rig, or isolated bench adapter.",
+      title: "Set it up safely",
+      detail: "We connect through a simulator or a small test setup.",
     },
     {
       step: "04",
-      title: "Measurable validation",
-      detail: "Compare testing time, uncovered edge anomalies, and root-cause diagnostics directly against baseline logs.",
+      title: "Compare the results",
+      detail: "Time saved, extra problems found, and clear reasons for each failure.",
     },
   ];
 
   return (
     <section id="pilot" className="py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
+
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <div className="text-sm sm:text-base font-semibold uppercase tracking-wider text-[#FF4545] mb-3">
-            How We Work With You
+            How we work with you
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
-            Start small. Prove the value.
+            Start small. See the proof.
           </h2>
           <p className="text-lg text-[#A1A5AD] leading-relaxed">
-            We begin with a focused, controlled proof-of-concept on a single system function to deliver clear evidence and measurable improvement.
+            No big commitment. We pick one thing to test and show you clear results.
           </p>
         </div>
 
@@ -71,10 +71,10 @@ export default function PilotSection() {
         <div className="p-8 rounded-xl bg-[#212121] border border-[#2E2C2C] flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center lg:text-left">
             <h4 className="text-xl font-bold text-white">
-              One system function. Clear evidence. Measurable improvement.
+              One function. Clear evidence. Real improvement.
             </h4>
             <p className="text-sm text-[#A1A5AD]">
-              Which validation challenge should we explore together?
+              What&apos;s the one thing you&apos;d like tested?
             </p>
           </div>
 
@@ -84,7 +84,7 @@ export default function PilotSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-[#FF4545] text-sm font-semibold text-white tracking-wide transition-all hover:bg-[#e03a3a] shadow-lg shadow-[#FF4545]/20 shrink-0"
           >
-            <span>Propose a Pilot Challenge</span>
+            <span>Suggest a test for us</span>
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>

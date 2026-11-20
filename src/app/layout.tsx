@@ -8,6 +8,8 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
   variable: "--font-inter",
   display: "swap",
+  preload: false,
+  fallback: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "sans-serif"],
 });
 
 export const viewport: Viewport = {
@@ -22,6 +24,10 @@ export const metadata: Metadata = {
   description: SITE_CONFIG.meta.description,
   keywords: [
     "ELL-AI",
+    "AI hardware testing",
+    "product testing",
+    "automatic emergency braking demo",
+    "find failures early",
     "Physical AI Validation Platform",
     "Boundary Testing",
     "Hardware-in-the-Loop",

@@ -16,17 +16,17 @@ export default function FoundersSection() {
   return (
     <section id="about" className="py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
+
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <div className="text-sm sm:text-base font-semibold uppercase tracking-wider text-[#FF4545] mb-3">
-            Founding Team
+            Our team
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
-            Built by engineers. Driven by a shared vision.
+            Built by engineers who&apos;ve felt this problem.
           </h2>
           <p className="text-lg text-[#A1A5AD] leading-relaxed">
-            Combining systems engineering, AI product architecture, and physical validation experience.
+            We bring together systems engineering, AI product building and hands-on hardware testing.
           </p>
         </div>
 

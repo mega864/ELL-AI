@@ -53,7 +53,7 @@ export default function Logo({ size = "md", showTagline = false, className = "" 
         </div>
         {showTagline && (
           <span className="text-[10px] font-mono tracking-wider uppercase text-[#A1A5AD] -mt-0.5">
-            Physical AI Validation
+            AI Hardware Testing
           </span>
         )}
       </div>

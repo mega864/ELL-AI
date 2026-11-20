@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
 import WorkflowSection from "@/components/WorkflowSection";
+import DemoSection from "@/components/DemoSection";
 import IndustriesSection from "@/components/IndustriesSection";
 import PilotSection from "@/components/PilotSection";
 import FoundersSection from "@/components/FoundersSection";
@@ -28,31 +29,34 @@ export default function Home() {
       </div>
 
       <div className="relative z-10">
-        {/* Sticky Navigation */}
+        {/* Navigation */}
         <Navbar />
 
         {/* 1. Hero */}
         <Hero />
 
-        {/* 2. Five Validation Gaps */}
+        {/* 2. Why testing is hard */}
         <ProblemSection />
 
-        {/* 3. How Our AI Works: 10-Step Loop */}
+        {/* 3. How it works */}
         <WorkflowSection />
 
-        {/* 4. Industries */}
+        {/* 4. See it in action: AEB Demo */}
+        <DemoSection />
+
+        {/* 5. Industries */}
         <IndustriesSection />
 
-        {/* 5. Start Small: Pilot Framework */}
+        {/* 6. How we work with you */}
         <PilotSection />
 
-        {/* 6. Founding Team */}
+        {/* 7. Founding Team */}
         <FoundersSection />
 
-        {/* 7. Contact */}
+        {/* 8. Contact */}
         <ContactSection />
 
-        {/* 8. Footer */}
+        {/* 9. Footer */}
         <Footer />
       </div>
     </main>

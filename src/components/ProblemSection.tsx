@@ -7,37 +7,37 @@ export default function ProblemSection() {
   const gaps = [
     {
       num: "1",
-      title: "New firmware needs new tests",
-      detail: "Frequent software updates create continuous testing overhead before integration.",
-      solution: "Auto-generate test cases linked directly to requirements for engineering review.",
+      title: "Every update needs new tests",
+      detail: "Each software update means fresh testing, and teams fall behind.",
+      solution: "We write the new tests for you, based on what the product is meant to do.",
       icon: FileCode,
     },
     {
       num: "2",
-      title: "Conditions interact unexpectedly",
-      detail: "Voltage drops, temperature swings, and signal delays combine to create subtle bugs.",
-      solution: "Target boundary combinations to uncover hidden failure points early.",
+      title: "Small issues combine",
+      detail: "A power dip, a hot day and a slight delay may each be fine alone. Together, they can break things.",
+      solution: "We test combinations, not just one condition at a time.",
       icon: Combine,
     },
     {
       num: "3",
-      title: "Edge cases get missed",
-      detail: "Standard test scripts only verify expected operating limits, missing borderline transitions.",
-      solution: "Test borderline transitions where physical sensors begin to drift or degrade.",
+      title: "Nobody tests what they didn't think of",
+      detail: "Checklists cover what people expect, not the surprises.",
+      solution: "Our AI tries the 'just about too much' cases, right at the limit and slightly beyond.",
       icon: EyeOff,
     },
     {
       num: "4",
-      title: "Root-cause analysis takes too long",
-      detail: "Engineers spend hours parsing raw CAN logs and sensor telemetry to isolate anomalies.",
-      solution: "Correlate telemetry with requirements to pinpoint the exact failure cause.",
+      title: "Finding the reason takes days",
+      detail: "Engineers dig through huge piles of recorded data to find what went wrong.",
+      solution: "We point to what failed, when it failed, and the likely reason.",
       icon: Clock,
     },
     {
       num: "5",
-      title: "Late discoveries cause costly rework",
-      detail: "Finding defects right before production triggers expensive re-testing cycles.",
-      solution: "Run targeted regression suites after code changes to catch issues immediately.",
+      title: "Late surprises cost a lot",
+      detail: "A problem found near launch means starting the testing again.",
+      solution: "We re-check automatically after every change, so issues show up early.",
       icon: RotateCcw,
     },
   ];
@@ -45,18 +45,17 @@ export default function ProblemSection() {
   return (
     <section id="problem" className="py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
+
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <div className="text-sm sm:text-base font-semibold uppercase tracking-wider text-[#FF4545] mb-3">
-            Testing Challenges
+            Why testing is hard
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
-            Five gaps that make validation difficult.
+            Testing physical products is slow, and problems still slip through.
           </h2>
           <p className="text-lg text-[#A1A5AD] leading-relaxed">
-            Conventional validation relies on manual test scripts and fixed checklists.
-            When hardware parameters interact under stress, critical defects slip through until late in development.
+            Most teams test with fixed checklists written by hand. But real life is messier. Heat, power changes and tiny delays can combine in ways nobody planned for, and the problem shows up late, when fixing it costs the most.
           </p>
         </div>
 
@@ -92,7 +91,7 @@ export default function ProblemSection() {
                 {/* Solution */}
                 <div className="md:col-span-6 pl-10 md:pl-0">
                   <span className="text-[10px] font-mono uppercase text-[#A1A5AD] tracking-wider block mb-1">
-                    How ELL-AI Solves This:
+                    How ELL-AI helps:
                   </span>
                   <p className="text-sm font-medium text-white leading-relaxed">
                     {gap.solution}
@@ -107,10 +106,10 @@ export default function ProblemSection() {
         <div className="mt-12 p-6 rounded-lg bg-[#212121] border border-[#2E2C2C] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <span className="text-xs font-mono text-[#FF4545] uppercase tracking-wider block mb-0.5">
-              The Real Industry Gap
+              The real gap
             </span>
             <p className="text-base font-semibold text-white">
-              Choosing the next useful test and turning results into action.
+              Knowing which test to run next, and what the results mean.
             </p>
           </div>
 
@@ -118,7 +117,7 @@ export default function ProblemSection() {
             href="#workflow"
             className="inline-flex items-center gap-1.5 text-xs font-mono text-white hover:text-[#FF4545] transition-colors shrink-0"
           >
-            <span>See the 10-Step Approach</span>
+            <span>See how it works</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>

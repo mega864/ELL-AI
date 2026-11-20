@@ -6,39 +6,39 @@ import { Car, Plane, Truck, Zap, Bot, Smartphone } from "lucide-react";
 export default function IndustriesSection() {
   const industries = [
     {
-      title: "Automotive",
-      detail: "Safety-critical electronic control units that must function reliably on the road.",
-      systems: "ECUs, radar modules, ultrasonic sensors, and in-vehicle networks.",
+      title: "Cars",
+      detail: "Safer, more dependable vehicle electronics.",
+      systems: "Control computers, radar and parking sensors, in-car networks.",
       icon: Car,
     },
     {
       title: "Aerospace",
-      detail: "High-consequence flight electronics with zero tolerance for undetected failure.",
-      systems: "Flight instrumentation, telemetry nodes, and control actuators.",
+      detail: "Reliable systems where failure isn't an option.",
+      systems: "Flight instruments, data links, moving parts controllers.",
       icon: Plane,
     },
     {
-      title: "Heavy Machinery",
-      detail: "Ruggedized industrial controllers built for demanding worksite conditions.",
-      systems: "Hydraulic controllers, thermal regulation units, and rugged sensors.",
+      title: "Heavy machinery",
+      detail: "Equipment that holds up in tough conditions.",
+      systems: "Hydraulic controls, temperature controls, rugged sensors.",
       icon: Truck,
     },
     {
-      title: "Energy & Power",
-      detail: "Grid-connected power infrastructure requiring high electrical resilience.",
-      systems: "Grid synchronizers, inverter bridges, and battery telemetry.",
+      title: "Energy and power",
+      detail: "Dependable systems behind electricity and batteries.",
+      systems: "Grid connections, power converters, battery monitoring.",
       icon: Zap,
     },
     {
       title: "Robotics",
-      detail: "Autonomous machines that need consistent performance in dynamic physical spaces.",
-      systems: "Navigation units, kinematic actuators, and LiDAR arrays.",
+      detail: "Machines that work reliably in the real world.",
+      systems: "Navigation units, robot arms and motors, laser scanners.",
       icon: Bot,
     },
     {
-      title: "Consumer Electronics",
-      detail: "High-volume hardware products where reliability drives user trust.",
-      systems: "Smart devices, power management ICs, and RF antennas.",
+      title: "Consumer electronics",
+      detail: "Everyday products people can trust.",
+      systems: "Smart devices, power chips, wireless antennas.",
       icon: Smartphone,
     },
   ];
@@ -50,13 +50,13 @@ export default function IndustriesSection() {
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <div className="text-sm sm:text-base font-semibold uppercase tracking-wider text-[#FF4545] mb-3">
-            Industries
+            Where it helps
           </div>
           <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
-            Physical systems that cannot afford to fail.
+            Anywhere a machine must work every time.
           </h2>
           <p className="text-lg text-[#A1A5AD] leading-relaxed">
-            Any product where hardware operates in challenging real-world environments is where rigorous validation matters most.
+            We start with one focused use case, then grow into industries where reliability really matters.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ export default function IndustriesSection() {
                 </div>
 
                 <div className="pt-4 border-t border-[#2E2C2C] text-xs font-mono text-zinc-400">
-                  <span className="text-[10px] text-[#A1A5AD] uppercase block mb-1">Systems:</span>
+                  <span className="text-[10px] text-[#A1A5AD] uppercase block mb-1">Examples:</span>
                   <span>{ind.systems}</span>
                 </div>
               </div>

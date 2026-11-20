@@ -16,8 +16,7 @@ export const FOUNDERS_DATA: Founder[] = [
     role: "Co-Founder",
     focusArea: "Validation & Systems Engineering",
     bio: "Senior engineer in ECU system engineering and validation for vehicle electronic architectures across HIL setups, vehicle networks, and field issue resolution.",
-    linkedInUrl: null,
-    status: "Profile Link Pending",
+    linkedInUrl: "https://in.linkedin.com/in/mallikarjunan-pechimuthu-29b62a1a3",
     initials: "MP",
   },
   {

@@ -20,9 +20,9 @@ export default function Footer() {
   return (
     <footer className="text-[#A1A5AD] pt-16 pb-12 bg-[#1E1C1C]/85 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-[#2E2C2C]">
-          
+
           {/* Brand Col */}
           <div className="md:col-span-5 space-y-4">
             <Logo size="md" showTagline={true} />
@@ -30,7 +30,7 @@ export default function Footer() {
               {SITE_CONFIG.statement}
             </p>
             <p className="text-[11px] font-mono text-zinc-500">
-              Direct physical connection through standard test adapters. Engineers retain final review.
+              Connects through standard test equipment. Engineers always review and sign off.
             </p>
           </div>
 
@@ -81,7 +81,7 @@ export default function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-zinc-500 gap-3">
           <span>&copy; {currentYear} ELL-AI. All rights reserved.</span>
           <div className="flex items-center gap-3 text-[11px]">
-            <span>Physical AI Validation Platform</span>
+            <span>AI Hardware Testing</span>
             <span>/</span>
             <span className="text-[#FF4545]">Engineered for Reliability</span>
           </div>

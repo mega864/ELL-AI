@@ -11,16 +11,15 @@ export default function ContactSection() {
         <div className="rounded-2xl bg-[#212121] border border-[#2E2C2C] p-8 sm:p-14 text-center max-w-3xl mx-auto">
 
           <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight leading-tight mb-4">
-            Which testing challenge should we explore together?
+            What&apos;s the one thing you&apos;d like tested?
           </h2>
 
           <p className="text-base text-[#FF4545] font-medium mb-4">
-            One system function. One controlled setup. Clear evidence.
+            One function. One setup. Clear evidence.
           </p>
 
           <p className="text-sm text-[#A1A5AD] max-w-lg mx-auto leading-relaxed mb-8">
-            Have a physical system or integration challenge you want to test?
-            Reach out directly to our engineering founders to outline a pilot.
+            Have a product or system you want to check? Message our founders directly and we&apos;ll outline a small pilot together.
           </p>
 
           <a
@@ -35,7 +34,7 @@ export default function ContactSection() {
 
           <div className="mt-8 pt-6 border-t border-[#2E2C2C] flex items-center justify-center gap-2 text-xs text-zinc-500">
             <ShieldCheck className="w-3.5 h-3.5 text-[#FF4545]" />
-            <span>Direct conversation with our engineering team</span>
+            <span>You&apos;ll talk directly to our engineering team.</span>
           </div>
 
         </div>
